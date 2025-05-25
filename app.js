@@ -14,13 +14,18 @@ app.get('/', async (req, res) => {
   let usernames;
 
   if (searchTerm) {
-    usernames = await db.searchUsernames(searchTerm)
+    usernames = await db.searchUsernames(searchTerm);
   } else {
     usernames = await db.getAllUsernames();
   }
 
-  console.log('Usernames: ', usernames)
+  console.log('Usernames: ', usernames);
   res.render('index', { title: 'Home page', usernames: usernames });
+});
+
+app.get('/delete', async (req, res) => {
+  await db.deleteUsernames();
+  res.redirect('/');
 });
 
 const PORT = process.env.PORT || 3000;
