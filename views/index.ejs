@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= title %></title>
-</head>
-<body>
-  <h1><%= title %></h1>
-  <h2>users:</h2>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
 
-  <a href="/new">Go to add user form</a>
-</body>
+    <form action="/" method="GET">
+      <input type="text" name="search" placeholder="Search usernames" />
+      <button type="submit">Search</button>
+    </form>
+
+    <h2>users:</h2>
+    <ul>
+      <% usernames.map(user => { %>
+      <li><%= user.username %></li>
+      <% }) %>
+    </ul>
+
+    <a href="/new">Go to add user form</a>
+  </body>
 </html>
