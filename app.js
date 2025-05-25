@@ -20,7 +20,7 @@ app.get('/', async (req, res) => {
   }
 
   console.log('Usernames: ', usernames);
-  res.render('index', { title: 'Home page', usernames: usernames });
+  res.render('index', { title: 'Home page', usernames: usernames, searchTerm: searchTerm });
 });
 
 app.get('/delete', async (req, res) => {
